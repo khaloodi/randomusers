@@ -78,7 +78,7 @@ function generateModal(item, data) {
     // Click 'X' to close modal window
     const button = document.querySelector("button");
     const modal = document.querySelector("div.modal-container");
-    button.addEventListener("click", function(event) {
+    button.addEventListener("click", () => {
         modal.remove();
     });
 }
