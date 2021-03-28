@@ -2,6 +2,7 @@ fetchData('https://randomuser.me/api/?results=12&nat=us')
     .then(data => {
         employeeList = data.results;
         generateUsers(employeeList)
+            // generateModal(employeeList)
     })
 
 // fetch function
@@ -38,9 +39,10 @@ function generateUsers(data) {
         divCard.innerHTML = html;
         gallery.append(divCard);
 
-        // Event listeners to each employee card:
-        divCard.addEventListener("click", () => {
-            generateModal(item);
+        // Event listener to trigger modal for each employee card:
+        divCard.addEventListener("click", (e) => {
+            e.preventDefault();
+            generateModal(item, data);
         });
     });
 }
@@ -49,12 +51,11 @@ function generateUsers(data) {
  * Creates and displays modal
  */
 
-function generateModal(item) {
+function generateModal(item, data) {
     console.log(item)
     let modalContainer = document.createElement("div");
     modalContainer.className = "modal-container";
-    // modalContainer.style.display = "none";
-    let modal = `
+    let html = `
             <div class="modal-container">
                 <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
@@ -72,10 +73,13 @@ function generateModal(item) {
             </div>
     `;
 
-    modalContainer.innerHTML = modal;
+    modalContainer.innerHTML = html;
     body.append(modalContainer);
 
-    document.getElementById('modal-close-btn').addEventListener('click', (e) => {
-        document.querySelector(".modal-container").style.display = "none";
-    })
+    // Click 'X' to close modal window
+    const button = document.querySelector("button");
+    const modal = document.querySelector("div.modal-container");
+    button.addEventListener("click", function(event) {
+        modal.remove();
+    });
 }
