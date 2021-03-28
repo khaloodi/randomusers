@@ -1,9 +1,14 @@
-fetch('https://randomuser.me/api/?results=12')
-    .then(response => response.json())
+fetchData('https://randomuser.me/api/?results=12&nat=us')
     .then(data => {
         generateUsers(data)
-        addModal(data)
+        generateModal(data)
     })
+
+// fetch function
+function fetchData(url) {
+    return fetch(url)
+        .then(response => response.json())
+};
 
 // helper functions
 
@@ -39,7 +44,7 @@ function generateUsers(data) {
  * Creates and displays modal
  */
 
-function addModal() {
+function generateModal(data) {
     let modal = `
             <div class="modal-container">
                 <div class="modal">
