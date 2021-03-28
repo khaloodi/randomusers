@@ -40,8 +40,7 @@ function generateUsers(data) {
         gallery.append(divCard);
 
         // Event listener to trigger modal for each employee card:
-        divCard.addEventListener("click", (e) => {
-            e.preventDefault();
+        divCard.addEventListener("click", () => {
             generateModal(item, data);
         });
     });
