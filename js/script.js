@@ -59,13 +59,13 @@ function generateModal(item, data) {
                 <div class="modal">
                     <button type="button" id="modal-close-btn" class="modal-close-btn"><strong>X</strong></button>
                     <div class="modal-info-container">
-                        <img class="modal-img" src="https://placehold.it/125x125" alt="profile picture">
-                        <h3 id="name" class="modal-name cap">name</h3>
-                        <p class="modal-text">email</p>
-                        <p class="modal-text cap">city</p>
+                        <img class="modal-img" src="${item.picture.large}" alt="profile picture">
+                        <h3 id="name" class="modal-name cap">${item.name.first} ${item.name.last}</h3>
+                        <p class="modal-text">${item.email}</p>
+                        <p class="modal-text cap">${item.location.city}</p>
                         <hr>
-                        <p class="modal-text">(555) 555-5555</p>
-                        <p class="modal-text">123 Portland Ave., Portland, OR 97204</p>
+                        <p class="modal-text">${item.cell}</p>
+                        <p class="modal-text">${item.location.street.number} ${item.location.street.name}, ${item.location.state} ${item.location.postcode}</p>
                         <p class="modal-text">Birthday: 10/21/2015</p>
                     </div>
                 </div>
