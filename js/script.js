@@ -63,4 +63,9 @@ function generateModal(data) {
             </div>
     `;
     gallery.insertAdjacentHTML('afterend', modal)
+    document.querySelector('.modal-container').style.display = "none"
+
+    document.getElementById('modal-close-btn').addEventListener('click', (e) => {
+        document.querySelector(".modal-container").style.display = "none";
+    })
 }
