@@ -1,9 +1,13 @@
-fetchData('https://randomuser.me/api/?results=12&nat=us')
-    .then(data => {
-        employeeList = data.results;
-        generateUsers(employeeList)
-            // generateModal(employeeList)
-    })
+try {
+    fetchData('https://randomuser.me/api/?results=12&nat=us')
+        .then(data => {
+            employeeList = data.results;
+            generateUsers(employeeList)
+                // generateModal(employeeList)
+        })
+} catch (error) {
+    console.error('There was a problem fetching data.')
+}
 
 // fetch function
 function fetchData(url) {
